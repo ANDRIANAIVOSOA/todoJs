@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ToDo list</title>
+</head>
+<body>
+    <div>
+        <input id="todo" value="" type="text">
+        <button id="valider">Valider</button>
+    </div>
+    <div>
+       <h3>List des toDo</h3>
+       <ul id="list">
+       </ul> 
+    </div>
+    <script src="addTodo.js"></script>
+    <script src="todo.js"></script>
+    <script src="liste.js"></script>
+    <script src="deleteTodo.js"></script>
+    <script>
+        const buttonvalider = new Addtodo('#valider');
+        const todo = new Todo("#todo");
+        const list = new Liste("#list", "li");
+        buttonvalider.setInput(todo);
+        buttonvalider.insertList(list);
+        if(new DeleteTodo('#suppr')){
+            const deleteItem = new DeleteTodo('#suppr');
+            deleteItem.insertList(list);
+            deleteItem.delete();
+        }
+    </script>
+</body>
+</html>
