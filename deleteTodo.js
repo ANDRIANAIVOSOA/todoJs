@@ -8,9 +8,7 @@ class DeleteTodo {
         });
     }
     delete(){
-        
-        console.log(this.list.getList());
-        console.log(this.list.delete(0));
+        this.list.delete(this.index);
         return this;
     }
 

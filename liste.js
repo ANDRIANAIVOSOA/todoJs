@@ -1,10 +1,8 @@
 class Liste {
-    constructor(id, balise){
+    constructor(id){
         this.ul = document.querySelector(id);
-        this.li = balise;
         this.listeTab = [];
         this.restore();
-        this.index = [];
     }
 
     insert(content) {
@@ -18,11 +16,12 @@ class Liste {
         
         listeJson.appendChild(span);
         listeJson.appendChild(deleteButton.supprim);
-
-        // this.listeJson = "<"+ this.li + ">"+content+"<input id='suppr' value='Suppr' type='submit'>"+"</"+ this.li + ">" ;
-        this.listeTab.push(content);
-        deleteButton.setIndex(this.listeTab.length-1);
-        //console.log("longeur listTab : "+(this.listeTab.length-1));
+        const id = Math.random();
+        this.listeTab.push({
+            content: content,
+            id: id
+        });
+        deleteButton.setIndex(id);
         this.save();
         this.ul.appendChild(listeJson);
     }
@@ -40,7 +39,7 @@ class Liste {
         if(restore){
             const tabRestore = JSON.parse(restore);
             tabRestore.forEach(element => {
-                this.insert(element);
+                this.insert(element.content);
             });
         }
     }
@@ -50,8 +49,10 @@ class Liste {
     }
 
     delete(index){
-        this.listeTab = this.listeTab.filter((x, i) => i !== index);
-        //console.log("ttttttt"+this.listeTab)
+        //this.listeTab = this.listeTab.filter((x, i) => i !== index);
+        this.listeTab = this.listeTab.filter(x => x.id !== index);
+        this.save();
+        console.log(this.listeTab)
     }
     
 }
