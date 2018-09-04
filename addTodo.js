@@ -6,10 +6,13 @@ class Addtodo {
         });
     }
     add(){
-        this.list.insert(this.input.get());
-        //console.log(this.list.delete(2));
-        console.log(this.list.getList());
-        return this;
+        if(this.input.get() !== ""){
+            this.list.insert(this.input.get());
+            this.input.vider();
+            console.log(this.list.getList());
+            //return this;
+        }
+        
     }
     //injection dépendance
     setInput(input){
