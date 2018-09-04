@@ -45,7 +45,6 @@ class Liste {
     }
 
     delete(index){
-        //this.listeTab = this.listeTab.filter((x, i) => i !== index);
         this.listeTab = this.listeTab.filter(x => x.id !== index);
         this.save();
     }

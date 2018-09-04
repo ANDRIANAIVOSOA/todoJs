@@ -9,8 +9,7 @@ class Addtodo {
         if(this.input.get() !== ""){
             this.list.insert(this.input.get());
             this.input.vider();
-            console.log(this.list.getList());
-            //return this;
+            //console.log(this.list.getList());
         }
         
     }
